@@ -8,17 +8,18 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.Email;
+import java.util.Objects;
 
 @Repository
 public class ExpenseKindDtoRequest {
 
     @NotNull (message = "Name of expense cannot be null")
-    @Size (min = 1, message = "Name of expense cannot be empty")
+    @Size (min = 1, message = "Expense field cannot be empty")
     private String expenseName;
 
     public ExpenseKindDtoRequest() {}
 
-    public ExpenseKindDtoRequest(@NotNull(message = "Name of expense cannot be null") String expenseName) {
+    public ExpenseKindDtoRequest(@NotNull(message = "Name of expense cannot be null") @Size(min = 1, message = "Expense field cannot be empty") String expenseName) {
         this.expenseName = expenseName;
     }
 
@@ -29,4 +30,6 @@ public class ExpenseKindDtoRequest {
     public void setExpenseName(String expenseName) {
         this.expenseName = expenseName;
     }
+
+
 }

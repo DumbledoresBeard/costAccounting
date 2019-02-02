@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class ExpenseKindController {
@@ -27,7 +29,7 @@ public class ExpenseKindController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ExpenseKindDtoResponse registerTeacher(
+    public ExpenseKindDtoResponse addExpenseKind(
             @Valid @RequestBody ExpenseKindDtoRequest expenseKindDtoRequest,
             HttpServletResponse response) {
 
@@ -35,5 +37,39 @@ public class ExpenseKindController {
         response.addCookie(cookie);
 
         return new ExpenseKindDtoResponse(expenseKindDtoRequest.getExpenseName());
+
+    }
+
+
+    @RequestMapping(value = "/expensekind",
+            method = RequestMethod.DELETE,
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ExpenseKindDtoResponse deleteExpenseKind(
+            @Valid @RequestBody ExpenseKindDtoRequest expenseKindDtoRequest,
+            HttpServletResponse response) {
+
+        Cookie cookie = new Cookie("JAVASESSIONID", "Value");
+        response.addCookie(cookie);
+
+        return new ExpenseKindDtoResponse(expenseKindDtoRequest.getExpenseName());
+
+    }
+
+    @RequestMapping(value = "/expensekind",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public List<ExpenseKindDtoResponse> getListExpenseKind(
+            @Valid @RequestBody ExpenseKindDtoRequest expenseKindDtoRequest,
+            HttpServletResponse response) {
+
+        Cookie cookie = new Cookie("JAVASESSIONID", "Value");
+        response.addCookie(cookie);
+
+        return new ArrayList<ExpenseKindDtoResponse>();
+
     }
 }
