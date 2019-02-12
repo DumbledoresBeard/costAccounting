@@ -1,19 +1,24 @@
 package net.costaccounting.dto;
 
+import net.costaccounting.model.ExpenseKind;
+import net.costaccounting.model.SumOfExpenses;
+
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
 public class ExpenseDtoResponse {
     private Float expense;
-    private String expenseName;
-    private Date date;
+    private ExpenseKind expenseKind;
+    private LocalDate localDate;
+    private SumOfExpenses sumOfExpenses;
 
     public ExpenseDtoResponse () {}
 
-    public ExpenseDtoResponse(Float expense, String expenseName, Date date) {
+    public ExpenseDtoResponse(Float expense, ExpenseKind expenseKind, LocalDate localDate) {
         this.expense = expense;
-        this.expenseName = expenseName;
-        this.date = date;
+        this.expenseKind = expenseKind;
+        this.localDate = localDate;
     }
 
     public Float getExpense() {
@@ -24,19 +29,19 @@ public class ExpenseDtoResponse {
         this.expense = expense;
     }
 
-    public String getExpenseName() {
-        return expenseName;
+    public ExpenseKind getExpenseKind() {
+        return expenseKind;
     }
 
-    public void setExpenseName(String expenseName) {
-        this.expenseName = expenseName;
+    public void setExpenseKind(ExpenseKind expenseKind) {
+        this.expenseKind = expenseKind;
     }
 
-    public Date getDate() {
-        return date;
+    public LocalDate getLocalDate() {
+        return localDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setLocalDate(LocalDate localDate) {
+        this.localDate = localDate;
     }
 }

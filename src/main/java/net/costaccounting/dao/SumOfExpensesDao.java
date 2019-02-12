@@ -1,4 +1,4 @@
 package net.costaccounting.dao;
 
-public interface SumOfExpenses {
+public interface SumOfExpensesDao {
 }

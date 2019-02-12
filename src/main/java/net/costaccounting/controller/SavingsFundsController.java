@@ -36,6 +36,6 @@ public class SavingsFundsController {
         Cookie cookie = new Cookie("JAVASESSIONID", "Value");
         response.addCookie(cookie);
 
-        return new SavingsFundsDtoResponse(savingsFundsDtoRequest.getMoney());
+        return new SavingsFundsDtoResponse(savingsFundsDtoRequest.getMoney(), savingsFundsDtoRequest.getDate());
     }
 }

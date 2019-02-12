@@ -30,7 +30,7 @@
 
     <root level="DEBUG">
         <appender-ref ref="STDOUT"/>
-        <appender-ref ref="ttschoolog"/>
+        <appender-ref ref="costaccountinglog"/>
     </root>
 
 </configuration>

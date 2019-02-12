@@ -1,5 +1,6 @@
 package net.costaccounting.dto;
 
+import net.costaccounting.model.ExpenseKind;
 import org.springframework.stereotype.Repository;
 
 import javax.validation.constraints.AssertTrue;
@@ -8,6 +9,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.Email;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Repository
@@ -18,18 +20,18 @@ public class ExpenseDtoRequest {
     private Float expense;
 
     @NotNull(message = "Expense kind cannot be null")
-    private String expenseName;
+    private ExpenseKind expenseKind;
 
 
     @NotNull(message = "Date cannot be null")
-    private Date date;
+    private LocalDate localDate;
 
     public ExpenseDtoRequest () {}
 
-    public ExpenseDtoRequest(@NotNull(message = "Expense cannot be null") @Size(min = 1, message = "Expense cannot be empty") Float expense, @NotNull(message = "Expense kind cannot be null") String expenseName, @NotNull(message = "Date cannot be null") Date date) {
+    public ExpenseDtoRequest(@NotNull(message = "Expense cannot be null") @Size(min = 1, message = "Expense cannot be empty") Float expense, @NotNull(message = "Expense kind cannot be null") ExpenseKind expenseKind, @NotNull(message = "Date cannot be null") LocalDate localDate) {
         this.expense = expense;
-        this.expenseName = expenseName;
-        this.date = date;
+        this.expenseKind = expenseKind;
+        this.localDate = localDate;
     }
 
     public Float getExpense() {
@@ -40,19 +42,19 @@ public class ExpenseDtoRequest {
         this.expense = expense;
     }
 
-    public String getExpenseName() {
-        return expenseName;
+    public ExpenseKind getExpenseKind() {
+        return expenseKind;
     }
 
-    public void setExpenseName(String expenseName) {
-        this.expenseName = expenseName;
+    public void setExpenseKind(ExpenseKind expenseKind) {
+        this.expenseKind = expenseKind;
     }
 
-    public Date getDate() {
-        return date;
+    public LocalDate getLocalDate() {
+        return localDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setLocalDate(LocalDate localDate) {
+        this.localDate = localDate;
     }
 }

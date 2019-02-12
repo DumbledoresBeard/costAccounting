@@ -36,8 +36,8 @@ public class ExpenseController {
         Cookie cookie = new Cookie("JAVASESSIONID", "Value");
         response.addCookie(cookie);
 
-        return new ExpenseDtoResponse(expenseDtoRequest.getExpense(), expenseDtoRequest.getExpenseName(),
-                expenseDtoRequest.getDate());
+        return new ExpenseDtoResponse(expenseDtoRequest.getExpense(), expenseDtoRequest.getExpenseKind(),
+                expenseDtoRequest.getLocalDate());
 
     }
 }
