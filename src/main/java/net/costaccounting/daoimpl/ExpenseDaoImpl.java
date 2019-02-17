@@ -20,7 +20,7 @@ public class ExpenseDaoImpl extends DaoImplBase implements ExpenseDao {
         LOGGER.debug("DAO insert expense {}", expense);
         try (SqlSession sqlSession = getSession()) {
             try {
-                getExpenseMapper(sqlSession).insert(expense, expenseKind);
+               getExpenseMapper(sqlSession).insert(expense, expenseKind);
             } catch (RuntimeException ex) {
                 LOGGER.info("Can't insert expense {}, {}", expense, ex);
                 sqlSession.rollback();

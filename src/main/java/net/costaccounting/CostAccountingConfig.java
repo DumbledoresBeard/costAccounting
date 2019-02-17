@@ -1,6 +1,7 @@
 package net.costaccounting;
 
 import net.costaccounting.daoimpl.ExpenseDaoImpl;
+import net.costaccounting.utils.MyBatisUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,6 +12,5 @@ public class CostAccountingConfig {
     public ExpenseDaoImpl expenseDao() {
         return new ExpenseDaoImpl();
     }
-
 
 }

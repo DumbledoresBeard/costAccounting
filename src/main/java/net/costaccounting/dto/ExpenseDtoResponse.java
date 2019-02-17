@@ -9,13 +9,13 @@ import java.util.Objects;
 
 public class ExpenseDtoResponse {
     private Float expense;
-    private ExpenseKind expenseKind;
+    private String expenseKind;
     private LocalDate localDate;
     private SumOfExpenses sumOfExpenses;
 
     public ExpenseDtoResponse () {}
 
-    public ExpenseDtoResponse(Float expense, ExpenseKind expenseKind, LocalDate localDate) {
+    public ExpenseDtoResponse(Float expense, String expenseKind, LocalDate localDate) {
         this.expense = expense;
         this.expenseKind = expenseKind;
         this.localDate = localDate;
@@ -29,11 +29,11 @@ public class ExpenseDtoResponse {
         this.expense = expense;
     }
 
-    public ExpenseKind getExpenseKind() {
+    public String getExpenseKind() {
         return expenseKind;
     }
 
-    public void setExpenseKind(ExpenseKind expenseKind) {
+    public void setExpenseKind(String expenseKind) {
         this.expenseKind = expenseKind;
     }
 
@@ -43,5 +43,13 @@ public class ExpenseDtoResponse {
 
     public void setLocalDate(LocalDate localDate) {
         this.localDate = localDate;
+    }
+
+    public SumOfExpenses getSumOfExpenses() {
+        return sumOfExpenses;
+    }
+
+    public void setSumOfExpenses(SumOfExpenses sumOfExpenses) {
+        this.sumOfExpenses = sumOfExpenses;
     }
 }

@@ -3,6 +3,8 @@ package net.costaccounting.controller;
 
 import net.costaccounting.dto.ExpenseKindDtoRequest;
 import net.costaccounting.dto.ExpenseKindDtoResponse;
+import net.costaccounting.service.CostAccountingService;
+import net.costaccounting.utils.MyBatisUtils;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
@@ -23,6 +25,8 @@ public class ExpenseKindController {
         return new TomcatServletWebServerFactory();
     }
 
+    CostAccountingService costAccountingService = new CostAccountingService();
+
 
     @RequestMapping(value = "/expensekind",
             method = RequestMethod.POST,
@@ -35,8 +39,10 @@ public class ExpenseKindController {
 
         Cookie cookie = new Cookie("JAVASESSIONID", "Value");
         response.addCookie(cookie);
+       MyBatisUtils.initSqlSessionFactory();
+        costAccountingService.addExpenseKind(expenseKindDtoRequest);
 
-        return new ExpenseKindDtoResponse(expenseKindDtoRequest.getExpenseName());
+        return new ExpenseKindDtoResponse(expenseKindDtoRequest.getExpenseName(), expenseKindDtoRequest.isReqular());
 
     }
 
@@ -53,7 +59,7 @@ public class ExpenseKindController {
         Cookie cookie = new Cookie("JAVASESSIONID", "Value");
         response.addCookie(cookie);
 
-        return new ExpenseKindDtoResponse(expenseKindDtoRequest.getExpenseName());
+        return new ExpenseKindDtoResponse(expenseKindDtoRequest.getExpenseName(), expenseKindDtoRequest.isReqular());
 
     }
 

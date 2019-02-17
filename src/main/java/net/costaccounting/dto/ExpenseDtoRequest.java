@@ -20,7 +20,7 @@ public class ExpenseDtoRequest {
     private Float expense;
 
     @NotNull(message = "Expense kind cannot be null")
-    private ExpenseKind expenseKind;
+    private String expenseKind;
 
 
     @NotNull(message = "Date cannot be null")
@@ -28,7 +28,7 @@ public class ExpenseDtoRequest {
 
     public ExpenseDtoRequest () {}
 
-    public ExpenseDtoRequest(@NotNull(message = "Expense cannot be null") @Size(min = 1, message = "Expense cannot be empty") Float expense, @NotNull(message = "Expense kind cannot be null") ExpenseKind expenseKind, @NotNull(message = "Date cannot be null") LocalDate localDate) {
+    public ExpenseDtoRequest(@NotNull(message = "Expense cannot be null") @Size(min = 1, message = "Expense cannot be empty") Float expense, @NotNull(message = "Expense kind cannot be null") String expenseKind, @NotNull(message = "Date cannot be null") LocalDate localDate) {
         this.expense = expense;
         this.expenseKind = expenseKind;
         this.localDate = localDate;
@@ -42,11 +42,11 @@ public class ExpenseDtoRequest {
         this.expense = expense;
     }
 
-    public ExpenseKind getExpenseKind() {
+    public String getExpenseKind() {
         return expenseKind;
     }
 
-    public void setExpenseKind(ExpenseKind expenseKind) {
+    public void setExpenseKind(String expenseKind) {
         this.expenseKind = expenseKind;
     }
 

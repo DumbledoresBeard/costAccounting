@@ -23,6 +23,11 @@ public class Expense {
         this.localDate = localDate;
     }
 
+    public Expense(Float expense, LocalDate localDate) {
+        this.expense = expense;
+        this.localDate = localDate;
+    }
+
     public int getExpenseId() {
         return expenseId;
     }
