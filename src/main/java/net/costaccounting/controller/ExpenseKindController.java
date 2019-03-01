@@ -5,6 +5,7 @@ import net.costaccounting.dto.ExpenseKindDtoRequest;
 import net.costaccounting.dto.ExpenseKindDtoResponse;
 import net.costaccounting.service.CostAccountingService;
 import net.costaccounting.utils.MyBatisUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
@@ -25,7 +26,8 @@ public class ExpenseKindController {
         return new TomcatServletWebServerFactory();
     }
 
-    CostAccountingService costAccountingService = new CostAccountingService();
+    @Autowired
+    CostAccountingService costAccountingService;
 
 
     @RequestMapping(value = "/expensekind",
@@ -39,7 +41,7 @@ public class ExpenseKindController {
 
         Cookie cookie = new Cookie("JAVASESSIONID", "Value");
         response.addCookie(cookie);
-       MyBatisUtils.initSqlSessionFactory();
+      /* MyBatisUtils.initSqlSessionFactory();*/
         costAccountingService.addExpenseKind(expenseKindDtoRequest);
 
         return new ExpenseKindDtoResponse(expenseKindDtoRequest.getExpenseName(), expenseKindDtoRequest.isReqular());

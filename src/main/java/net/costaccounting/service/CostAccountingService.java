@@ -12,11 +12,15 @@ import net.costaccounting.model.Expense;
 import net.costaccounting.model.ExpenseKind;
 import net.costaccounting.model.Settings;
 import net.costaccounting.utils.MyBatisUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.annotation.Resource;
 
 public class CostAccountingService {
 
     private ExpenseDao expenseDao;
-    private ExpenseKindDao expenseKindDao = new ExpenseKindDaoImpl();
+   @Autowired
+    private ExpenseKindDaoImpl expenseKindDao;
     private SettingsDao settingsDao;
 
 

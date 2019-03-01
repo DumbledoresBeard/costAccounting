@@ -25,12 +25,12 @@
     </environments>
 
     <mappers>
-        <mapper class="net.thumbtack.school.database.mybatis.mappers.TraineeMapper"/>
-        <mapper class="net.thumbtack.school.database.mybatis.mappers.GroupMapper"/>
-        <mapper class="net.thumbtack.school.database.mybatis.mappers.SchoolMapper"/>
-        <mapper class="net.thumbtack.school.database.mybatis.mappers.SubjectMapper"/>
+        <mapper class="net.costaccounting.mappers.ExpenseKindMapper"/>
+        <mapper class="net.costaccounting.mappers.ExpenseMapper"/>
+        <mapper class="net.costaccounting.mappers.SettingsMapper"/>
+
        <!-- <mapper resource="net/thumbtack/school/database/mybatis/mappers/SchoolMapper.xml"/>-->
-        <mapper resource="net/thumbtack/school/database/mybatis/mappers/SchoolMapper"/>
+
       <!--  <mapper resource="net/thumbtack/school/database/mybatis/mappers/GroupMapper.xml"/>
         <mapper resource="net/thumbtack/school/database/mybatis/mappers/SubjectMapper.xml"/>-->
 

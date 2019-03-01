@@ -24,8 +24,8 @@ public interface ExpenseKindMapper {
     ExpenseKind getByName(String name);
 
 
-    @Insert("INSERT INTO expense_kind (name, is_reqular ) VALUES "
-            + "( #{expenseKind.expenseName}, #{expenseKind.isReqular} )")
+    @Insert("INSERT INTO expense_kind (name, is_regular ) VALUES "
+            + "( #{expenseKind.expenseName}, #{expenseKind.isRegular} )")
     @Options(useGeneratedKeys = true, keyProperty = "expense_kind_id")
-    Integer insert(@Param("expense_kind")ExpenseKind expenseKind);
+    Integer insert(@Param("expenseKind")ExpenseKind expenseKind);
 }

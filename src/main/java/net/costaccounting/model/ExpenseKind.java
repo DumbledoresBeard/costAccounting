@@ -34,7 +34,7 @@ public class ExpenseKind {
         this.expenseName = expenseName;
     }
 
-    public boolean isRegular() {
+    public boolean getIsRegular() {
         return isRegular;
     }
 
@@ -48,12 +48,12 @@ public class ExpenseKind {
         if (!(o instanceof ExpenseKind)) return false;
         ExpenseKind that = (ExpenseKind) o;
         return getExpenseKindId() == that.getExpenseKindId() &&
-                isRegular() == that.isRegular() &&
+                isRegular == that.isRegular &&
                 Objects.equals(getExpenseName(), that.getExpenseName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getExpenseKindId(), getExpenseName(), isRegular());
+        return Objects.hash(getExpenseKindId(), getExpenseName(), isRegular);
     }
 }

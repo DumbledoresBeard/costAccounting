@@ -14,9 +14,9 @@ public interface ExpenseMapper {
 
 
     @Insert("INSERT INTO expense (expense, local_date, expense_kind_id ) VALUES "
-            + "( #{expense.expense}, #{expense.local_date, #{expenseKind.id} )")
+            + "( #{expense.expense}, #{expense.localDate}, #{expenseKind.expenseKindId} )")
     @Options(useGeneratedKeys = true, keyProperty = "expense.id")
-    Integer insert(@Param("expense")Expense expense, @Param("expense_kind")ExpenseKind expenseKind);
+    Integer insert(@Param("expense")Expense expense, @Param("expenseKind")ExpenseKind expenseKind);
 
 
 

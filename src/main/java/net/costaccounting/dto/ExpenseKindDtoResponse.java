@@ -2,13 +2,13 @@ package net.costaccounting.dto;
 
 public class ExpenseKindDtoResponse {
     private String expenseName;
-    private boolean isReqular;
+    private boolean isRegular;
 
     public ExpenseKindDtoResponse() {}
 
-    public ExpenseKindDtoResponse(String expenseName, boolean isReqular) {
+    public ExpenseKindDtoResponse(String expenseName, boolean isRegular) {
         this.expenseName = expenseName;
-        this.isReqular = isReqular;
+        this.isRegular = isRegular;
     }
 
     public String getExpenseName() {
@@ -19,11 +19,11 @@ public class ExpenseKindDtoResponse {
         this.expenseName = expenseName;
     }
 
-    public boolean isReqular() {
-        return isReqular;
+    public boolean isRegular() {
+        return isRegular;
     }
 
-    public void setReqular(boolean reqular) {
-        isReqular = reqular;
+    public void setRegular(boolean regular) {
+        isRegular = regular;
     }
 }
