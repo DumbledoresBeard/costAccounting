@@ -38,8 +38,8 @@ public class ExpenseKind {
         return isRegular;
     }
 
-    public void setRegular(boolean regular) {
-        isRegular = regular;
+    public void setIsRegular(boolean isRegular) {
+        this.isRegular = isRegular;
     }
 
     @Override

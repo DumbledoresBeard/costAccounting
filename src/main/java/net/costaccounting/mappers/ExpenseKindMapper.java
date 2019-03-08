@@ -15,9 +15,9 @@ public interface ExpenseKindMapper {
 
     @Select("SELECT expense_kind_id, name, is_regular FROM expense_kind WHERE name = #{name}")
     @Results({
-            @Result(property = "id", column = "expense_kind_id"),
-            @Result(property = "name", column = "name", javaType = String.class),
-            @Result(property = "is_regular", column = "is_regular", javaType = Boolean.class),
+            @Result(property = "expenseKindId", column = "expense_kind_id"),
+            @Result(property = "expenseName", column = "name", javaType = String.class),
+            @Result(property = "isRegular", column = "is_regular", javaType = Boolean.class),
 
     })
 

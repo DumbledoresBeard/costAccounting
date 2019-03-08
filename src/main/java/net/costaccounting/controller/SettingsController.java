@@ -35,6 +35,6 @@ public class SettingsController {
         Cookie cookie = new Cookie("JAVASESSIONID", "Value");
         response.addCookie(cookie);
 
-        return new SettingsDtoResponse(settingsDtoRequest.getStartDate(), settingsDtoRequest.isAutoCounting());
+        return new SettingsDtoResponse(settingsDtoRequest.getStartDate(), settingsDtoRequest.getAutoCounting());
     }
 }

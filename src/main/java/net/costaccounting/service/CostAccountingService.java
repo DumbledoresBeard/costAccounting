@@ -11,23 +11,28 @@ import net.costaccounting.dto.ExpenseKindDtoRequest;
 import net.costaccounting.model.Expense;
 import net.costaccounting.model.ExpenseKind;
 import net.costaccounting.model.Settings;
+import net.costaccounting.model.SumOfExpenses;
 import net.costaccounting.utils.MyBatisUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.Resource;
+import java.time.LocalDate;
 
 public class CostAccountingService {
 
+    @Autowired
     private ExpenseDao expenseDao;
    @Autowired
-    private ExpenseKindDaoImpl expenseKindDao;
+    private ExpenseKindDao expenseKindDao;
     private SettingsDao settingsDao;
 
 
     public Expense addExpense (ExpenseDtoRequest expenseDtoRequest) {
         ExpenseKind expenseKind = expenseKindDao.getByName(expenseDtoRequest.getExpenseKind());
-        expenseDao.insert(new Expense(expenseDtoRequest.getExpense(),
-                     expenseDtoRequest.getLocalDate()), expenseKind);
+        if (expenseDtoRequest.getLocalDate() == null) {
+          expenseDtoRequest.setLocalDate(LocalDate.now());
+        }
+        expenseDao.insert(new Expense(expenseDtoRequest.getExpense(), expenseDtoRequest.getLocalDate()), expenseKind);
         /*Settings settings = settingsDao.getById(1);
         if (settings.isAutoCounting()) {
 
@@ -39,9 +44,14 @@ public class CostAccountingService {
 
     public ExpenseKind addExpenseKind (ExpenseKindDtoRequest expenseKindDtoRequest) {
         expenseKindDao.insert(new ExpenseKind(expenseKindDtoRequest.getExpenseName(),
-                expenseKindDtoRequest.isReqular()));
+                expenseKindDtoRequest.getIsRegular()));
         return new ExpenseKind(expenseKindDtoRequest.getExpenseName(),
-                expenseKindDtoRequest.isReqular());
+                expenseKindDtoRequest.getIsRegular());
+    }
+
+    public SumOfExpenses countSumOfExpenses () {
+        
+        return null;
     }
 
 }

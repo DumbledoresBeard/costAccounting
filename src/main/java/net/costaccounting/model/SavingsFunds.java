@@ -4,22 +4,22 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class SavingsFunds {
-    private int savingsFundsId;
+    private int id;
     private Float money;
     private LocalDate date;
 
-    public SavingsFunds(int savingsFundsId, Float money, LocalDate date) {
-        this.savingsFundsId = savingsFundsId;
+    public SavingsFunds(int id, Float money, LocalDate date) {
+        this.id = id;
         this.money = money;
         this.date = date;
     }
 
-    public int getSavingsFundsId() {
-        return savingsFundsId;
+    public int getId() {
+        return id;
     }
 
-    public void setSavingsFundsId(int savingsFundsId) {
-        this.savingsFundsId = savingsFundsId;
+    public void setId(int savingsFundsId) {
+        this.id = id;
     }
 
     public Float getMoney() {
@@ -43,13 +43,13 @@ public class SavingsFunds {
         if (this == o) return true;
         if (!(o instanceof SavingsFunds)) return false;
         SavingsFunds that = (SavingsFunds) o;
-        return getSavingsFundsId() == that.getSavingsFundsId() &&
+        return getId() == that.getId() &&
                 Objects.equals(getMoney(), that.getMoney()) &&
                 Objects.equals(getDate(), that.getDate());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getSavingsFundsId(), getMoney(), getDate());
+        return Objects.hash(getId(), getMoney(), getDate());
     }
 }

@@ -44,7 +44,7 @@ public class ExpenseKindController {
       /* MyBatisUtils.initSqlSessionFactory();*/
         costAccountingService.addExpenseKind(expenseKindDtoRequest);
 
-        return new ExpenseKindDtoResponse(expenseKindDtoRequest.getExpenseName(), expenseKindDtoRequest.isReqular());
+        return new ExpenseKindDtoResponse(expenseKindDtoRequest.getExpenseName(), expenseKindDtoRequest.getIsRegular());
 
     }
 
@@ -61,7 +61,7 @@ public class ExpenseKindController {
         Cookie cookie = new Cookie("JAVASESSIONID", "Value");
         response.addCookie(cookie);
 
-        return new ExpenseKindDtoResponse(expenseKindDtoRequest.getExpenseName(), expenseKindDtoRequest.isReqular());
+        return new ExpenseKindDtoResponse(expenseKindDtoRequest.getExpenseName(), expenseKindDtoRequest.getIsRegular());
 
     }
 

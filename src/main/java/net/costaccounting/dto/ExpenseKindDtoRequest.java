@@ -17,13 +17,13 @@ public class ExpenseKindDtoRequest {
     @Size (min = 1, message = "Expense field cannot be empty")
     private String expenseName;
 
-    private boolean isReqular;
+    private boolean isRegular;
 
     public ExpenseKindDtoRequest() {}
 
-    public ExpenseKindDtoRequest(@NotNull(message = "Name of expense cannot be null") @Size(min = 1, message = "Expense field cannot be empty") String expenseName, boolean isReqular) {
+    public ExpenseKindDtoRequest(@NotNull(message = "Name of expense cannot be null") @Size(min = 1, message = "Expense field cannot be empty") String expenseName, boolean isRegular) {
         this.expenseName = expenseName;
-        this.isReqular = isReqular;
+        this.isRegular = isRegular;
     }
 
     public String getExpenseName() {
@@ -34,11 +34,11 @@ public class ExpenseKindDtoRequest {
         this.expenseName = expenseName;
     }
 
-    public boolean isReqular() {
-        return isReqular;
+    public boolean getIsRegular() {
+        return isRegular;
     }
 
-    public void setReqular(boolean reqular) {
-        isReqular = reqular;
+    public void setIsRegular(boolean isRegular) {
+        this.isRegular = isRegular;
     }
 }

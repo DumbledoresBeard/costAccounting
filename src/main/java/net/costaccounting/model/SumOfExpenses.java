@@ -3,23 +3,23 @@ package net.costaccounting.model;
 import java.util.Objects;
 
 public class SumOfExpenses {
-    private int sumOfExpensesId;
+    private int id;
     private ExpenseKind expenseKind;
     private Float sumOfExpenses;
 
 
-    public SumOfExpenses(int sumOfExpensesId, ExpenseKind expenseKind, Float sumOfExpenses) {
-        this.sumOfExpensesId = sumOfExpensesId;
+    public SumOfExpenses(int id, ExpenseKind expenseKind, Float sumOfExpenses) {
+        this.id = id;
         this.expenseKind = expenseKind;
         this.sumOfExpenses = sumOfExpenses;
     }
 
-    public int getSumOfExpensesId() {
-        return sumOfExpensesId;
+    public int getId() {
+        return id;
     }
 
-    public void setSumOfExpensesId(int sumOfExpensesId) {
-        this.sumOfExpensesId = sumOfExpensesId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public ExpenseKind getExpenseKind() {
@@ -43,13 +43,13 @@ public class SumOfExpenses {
         if (this == o) return true;
         if (!(o instanceof SumOfExpenses)) return false;
         SumOfExpenses that = (SumOfExpenses) o;
-        return getSumOfExpensesId() == that.getSumOfExpensesId() &&
+        return id == that.id &&
                 Objects.equals(getExpenseKind(), that.getExpenseKind()) &&
                 Objects.equals(getSumOfExpenses(), that.getSumOfExpenses());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getSumOfExpensesId(), getExpenseKind(), getSumOfExpenses());
+        return Objects.hash(id, getExpenseKind(), getSumOfExpenses());
     }
 }

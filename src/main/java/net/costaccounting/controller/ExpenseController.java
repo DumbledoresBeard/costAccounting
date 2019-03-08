@@ -5,6 +5,9 @@ import net.costaccounting.dto.ExpenseDtoRequest;
 import net.costaccounting.dto.ExpenseDtoResponse;
 import net.costaccounting.dto.ExpenseKindDtoRequest;
 import net.costaccounting.dto.ExpenseKindDtoResponse;
+import net.costaccounting.model.Expense;
+import net.costaccounting.service.CostAccountingService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
@@ -23,6 +26,9 @@ public class ExpenseController {
         return new TomcatServletWebServerFactory();
     }
 
+    @Autowired
+    CostAccountingService costAccountingService;
+
 
     @RequestMapping(value = "/expense",
             method = RequestMethod.POST,
@@ -36,8 +42,10 @@ public class ExpenseController {
         Cookie cookie = new Cookie("JAVASESSIONID", "Value");
         response.addCookie(cookie);
 
-        return new ExpenseDtoResponse(expenseDtoRequest.getExpense(), expenseDtoRequest.getExpenseKind(),
-                expenseDtoRequest.getLocalDate());
+        Expense expense = costAccountingService.addExpense(expenseDtoRequest);
+
+        return new ExpenseDtoResponse(expense.getExpense(), expense.getExpenseKind().getExpenseName(),
+                expense.getLocalDate());
 
     }
 }

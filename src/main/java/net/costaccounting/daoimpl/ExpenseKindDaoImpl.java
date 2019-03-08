@@ -19,14 +19,11 @@ public class ExpenseKindDaoImpl extends DaoImplBase implements ExpenseKindDao {
     private ExpenseKindMapper expenseKindMapper;
 
     @Override
+    @Transactional
     public ExpenseKind getByName(String name) {
         LOGGER.debug("DAO get ExpenseKind by Name {}", name);
-        try (SqlSession sqlSession = getSession()) {
-            return getExpenseKindMapper(sqlSession).getByName(name);
-        } catch (RuntimeException ex) {
-            LOGGER.info("Can't get ExpenseKind {}", ex);
-            throw ex;
-        }
+
+            return expenseKindMapper.getByName(name);
     }
 
     @Override

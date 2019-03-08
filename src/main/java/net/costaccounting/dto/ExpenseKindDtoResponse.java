@@ -19,11 +19,11 @@ public class ExpenseKindDtoResponse {
         this.expenseName = expenseName;
     }
 
-    public boolean isRegular() {
+    public boolean getIsRegular() {
         return isRegular;
     }
 
-    public void setRegular(boolean regular) {
-        isRegular = regular;
+    public void setIsRegular(boolean isRegular) {
+        this.isRegular = isRegular;
     }
 }

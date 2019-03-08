@@ -29,7 +29,7 @@ public class SettingsDtoRequest {
         this.startDate = startDate;
     }
 
-    public boolean isAutoCounting() {
+    public boolean getAutoCounting() {
         return autoCounting;
     }
 

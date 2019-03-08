@@ -15,20 +15,18 @@ import java.util.Date;
 @Repository
 public class ExpenseDtoRequest {
 
-    @NotNull(message = "Expense cannot be null")
-    @Size (min = 1, message = "Expense cannot be empty")
+   /* @NotNull(message = "Expense cannot be null")
+    @Size (min = 1, message = "Expense cannot be empty")*/
     private Float expense;
 
     @NotNull(message = "Expense kind cannot be null")
     private String expenseKind;
 
-
-    @NotNull(message = "Date cannot be null")
     private LocalDate localDate;
 
     public ExpenseDtoRequest () {}
 
-    public ExpenseDtoRequest(@NotNull(message = "Expense cannot be null") @Size(min = 1, message = "Expense cannot be empty") Float expense, @NotNull(message = "Expense kind cannot be null") String expenseKind, @NotNull(message = "Date cannot be null") LocalDate localDate) {
+    public ExpenseDtoRequest(/*@NotNull(message = "Expense cannot be null") @Size(min = 1, message = "Expense cannot be empty")*/ Float expense, @NotNull(message = "Expense kind cannot be null") String expenseKind, LocalDate localDate) {
         this.expense = expense;
         this.expenseKind = expenseKind;
         this.localDate = localDate;

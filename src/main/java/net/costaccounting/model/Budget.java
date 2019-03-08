@@ -4,25 +4,25 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Budget {
-    private int budgetId;
+    private int id;
     private Float budget;
     private LocalDate startDate;
     private LocalDate endDate;
 
 
-    public Budget(int budgetId, Float budget, LocalDate startDate, LocalDate endDate) {
-        this.budgetId = budgetId;
+    public Budget(int id, Float budget, LocalDate startDate, LocalDate endDate) {
+        this.id = id;
         this.budget = budget;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    public int getBudgetId() {
-        return budgetId;
+    public int getId() {
+        return id;
     }
 
-    public void setBudgetId(int budgetId) {
-        this.budgetId = budgetId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Float getBudget() {
@@ -54,7 +54,7 @@ public class Budget {
         if (this == o) return true;
         if (!(o instanceof Budget)) return false;
         Budget budget1 = (Budget) o;
-        return getBudgetId() == budget1.getBudgetId() &&
+        return getId() == budget1.getId() &&
                 Objects.equals(getBudget(), budget1.getBudget()) &&
                 Objects.equals(getStartDate(), budget1.getStartDate()) &&
                 Objects.equals(getEndDate(), budget1.getEndDate());
@@ -62,6 +62,6 @@ public class Budget {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getBudgetId(), getBudget(), getStartDate(), getEndDate());
+        return Objects.hash(getId(), getBudget(), getStartDate(), getEndDate());
     }
 }
