@@ -1,14 +1,13 @@
 package net.costaccounting.mappers;
 
+import net.costaccounting.model.ExpenseKind;
 import net.costaccounting.model.Settings;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 
 public interface SettingsMapper {
 
-    @Select("SELECT settings_id, periodStartDate, autoCounting FROM settings WHERE id = #{id}")
+    @Select("SELECT id, period_start_date, auto_counting FROM settings WHERE id = #{id}")
     @Results({
             @Result(property = "id", column = "id"),
             @Result(property = "periodStartDate", column = "period_start_date", javaType = String.class),
@@ -17,4 +16,9 @@ public interface SettingsMapper {
     })
     Settings getById(int id);
 
+
+    @Insert("INSERT INTO settings (period_start_date, auto_counting) VALUES "
+            + "( #{settings.periodStartDate}, #{settings.autoCounting} )")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    Integer insert(@Param("settings") Settings settings);
 }

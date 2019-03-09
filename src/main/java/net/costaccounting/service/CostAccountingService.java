@@ -49,8 +49,8 @@ public class CostAccountingService {
                 expenseKindDtoRequest.getIsRegular());
     }
 
-    public SumOfExpenses countSumOfExpenses () {
-        
+    public SumOfExpenses countSumOfExpenses (Expense expense, Settings settings) {
+
         return null;
     }
 

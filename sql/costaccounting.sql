@@ -12,6 +12,7 @@ CREATE TABLE expense (id int auto_increment,
 expense float not null,
 local_date date,
 expense_kind_id int,
+sum_of_expenses float,
 PRIMARY KEY(id),
 FOREIGN KEY (expense_kind_id) REFERENCES expense_kind(expense_kind_id) ON DELETE CASCADE
 )ENGINE=InnoDB CHARACTER SET=UTF8;
@@ -21,13 +22,6 @@ period_start_date date,
 auto_counting boolean,
 PRIMARY KEY (id)
 )ENGINE=InnoDB CHARACTER SET=UTF8;
-
-CREATE TABLE sum_of_expenses (id int auto_increment,
-sum_of_expenses float,
-expense_kind_id int,
-PRIMARY KEY (id),
-FOREIGN KEY (expense_kind_id) REFERENCES expense_kind(expense_kind_id) ON DELETE CASCADE
-) ENGINE=InnoDB CHARACTER SET=UTF8;
 
 CREATE TABLE budget (id int auto_increment,
  budget float,
@@ -40,6 +34,12 @@ CREATE TABLE savings_funds (id int auto_increment,
  money float,
  savings_funds_date date,
  PRIMARY KEY (id)
-)NGINE=InnoDB CHARACTER SET=UTF8;
+)ENGINE=InnoDB CHARACTER SET=UTF8;
+
+CREATE TABLE settings (id int auto_increment,
+period_start_date date,
+auto_counting boolean,
+PRIMARY KEY (id)
+)ENGINE=InnoDB CHARACTER SET=UTF8;
 
 

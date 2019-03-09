@@ -34,7 +34,7 @@ public class Settings {
         this.periodStartDate = periodStartDate;
     }
 
-    public boolean isAutoCounting() {
+    public boolean getAutoCounting() {
         return autoCounting;
     }
 
@@ -48,12 +48,12 @@ public class Settings {
         if (!(o instanceof Settings)) return false;
         Settings settings = (Settings) o;
         return getId() == settings.getId() &&
-                isAutoCounting() == settings.isAutoCounting() &&
+                getAutoCounting() == settings.getAutoCounting() &&
                 Objects.equals(getPeriodStartDate(), settings.getPeriodStartDate());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getPeriodStartDate(), isAutoCounting());
+        return Objects.hash(getId(), getPeriodStartDate(), getAutoCounting());
     }
 }
