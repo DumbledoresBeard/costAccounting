@@ -1,17 +1,29 @@
 package net.costaccounting.model;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class SumOfExpenses {
     private int id;
     private ExpenseKind expenseKind;
     private Float sumOfExpenses;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
 
-    public SumOfExpenses(int id, ExpenseKind expenseKind, Float sumOfExpenses) {
+    public SumOfExpenses(int id, ExpenseKind expenseKind, Float sumOfExpenses, LocalDate startDate, LocalDate endDate) {
         this.id = id;
         this.expenseKind = expenseKind;
         this.sumOfExpenses = sumOfExpenses;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+
+    public SumOfExpenses(ExpenseKind expenseKind, Float sumOfExpenses, LocalDate startDate, LocalDate endDate) {
+        this.expenseKind = expenseKind;
+        this.sumOfExpenses = sumOfExpenses;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public int getId() {
@@ -36,6 +48,22 @@ public class SumOfExpenses {
 
     public void setSumOfExpenses(Float sumOfExpenses) {
         this.sumOfExpenses = sumOfExpenses;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
     }
 
     @Override

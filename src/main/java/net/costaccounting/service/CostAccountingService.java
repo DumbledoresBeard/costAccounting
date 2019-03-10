@@ -3,6 +3,7 @@ package net.costaccounting.service;
 import net.costaccounting.dao.ExpenseDao;
 import net.costaccounting.dao.ExpenseKindDao;
 import net.costaccounting.dao.SettingsDao;
+import net.costaccounting.dao.SumOfExpensesDao;
 import net.costaccounting.daoimpl.ExpenseDaoImpl;
 import net.costaccounting.daoimpl.ExpenseKindDaoImpl;
 import net.costaccounting.daoimpl.SettingsDaoImpl;
@@ -24,7 +25,10 @@ public class CostAccountingService {
     private ExpenseDao expenseDao;
    @Autowired
     private ExpenseKindDao expenseKindDao;
+   @Autowired
     private SettingsDao settingsDao;
+   @Autowired
+   private SumOfExpensesDao sumOfExpensesDao;
 
 
     public Expense addExpense (ExpenseDtoRequest expenseDtoRequest) {

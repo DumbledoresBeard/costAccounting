@@ -19,6 +19,6 @@ public interface SettingsMapper {
 
     @Insert("INSERT INTO settings (period_start_date, auto_counting) VALUES "
             + "( #{settings.periodStartDate}, #{settings.autoCounting} )")
-    @Options(useGeneratedKeys = true, keyProperty = "id")
+    @Options(useGeneratedKeys = true, keyProperty = "settings.id")
     Integer insert(@Param("settings") Settings settings);
 }
