@@ -1,20 +1,24 @@
 package net.costaccounting.model;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Settings {
     private int id;
-    private String periodStartDate;
+    private LocalDate periodStartDate;
+    private LocalDate periodEndDate;
     private boolean autoCounting;
 
-    public Settings(int id, String periodStartDate, boolean autoCounting) {
+    public Settings(int id, LocalDate periodStartDate, LocalDate periodEndDate, boolean autoCounting) {
         this.id = id;
         this.periodStartDate = periodStartDate;
+        this.periodEndDate = periodEndDate;
         this.autoCounting = autoCounting;
     }
 
-    public Settings(String periodStartDate, boolean autoCounting) {
+    public Settings(LocalDate periodStartDate, LocalDate periodEndDate, boolean autoCounting) {
         this.periodStartDate = periodStartDate;
+        this.periodEndDate = periodEndDate;
         this.autoCounting = autoCounting;
     }
 
@@ -26,12 +30,20 @@ public class Settings {
         this.id = id;
     }
 
-    public String getPeriodStartDate() {
+    public LocalDate getPeriodStartDate() {
         return periodStartDate;
     }
 
-    public void setPeriodStartDate(String periodStartDate) {
+    public void setPeriodStartDate(LocalDate periodStartDate) {
         this.periodStartDate = periodStartDate;
+    }
+
+    public LocalDate getPeriodEndDate() {
+        return periodEndDate;
+    }
+
+    public void setPeriodEndDate(LocalDate periodEndDate) {
+        this.periodEndDate = periodEndDate;
     }
 
     public boolean getAutoCounting() {
@@ -49,11 +61,12 @@ public class Settings {
         Settings settings = (Settings) o;
         return getId() == settings.getId() &&
                 getAutoCounting() == settings.getAutoCounting() &&
-                Objects.equals(getPeriodStartDate(), settings.getPeriodStartDate());
+                Objects.equals(getPeriodStartDate(), settings.getPeriodStartDate()) &&
+                Objects.equals(getPeriodEndDate(), settings.getPeriodEndDate());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getPeriodStartDate(), getAutoCounting());
+        return Objects.hash(getId(), getPeriodStartDate(), getPeriodEndDate(), getAutoCounting());
     }
 }

@@ -12,10 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 
-import static net.costaccounting.utils.MyBatisUtils.getSession;
 
 
-public class ExpenseDaoImpl extends DaoImplBase implements ExpenseDao {
+
+public class ExpenseDaoImpl implements ExpenseDao {
     private static final Logger LOGGER = LoggerFactory.getLogger(ExpenseDaoImpl.class);
 
     @Autowired

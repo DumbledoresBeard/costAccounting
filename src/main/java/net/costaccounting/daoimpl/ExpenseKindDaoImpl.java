@@ -9,10 +9,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import static net.costaccounting.utils.MyBatisUtils.getSession;
+
 
 @Transactional
-public class ExpenseKindDaoImpl extends DaoImplBase implements ExpenseKindDao {
+public class ExpenseKindDaoImpl implements ExpenseKindDao {
     private static final Logger LOGGER = LoggerFactory.getLogger(ExpenseKindDaoImpl.class);
 
     @Autowired
@@ -30,16 +30,7 @@ public class ExpenseKindDaoImpl extends DaoImplBase implements ExpenseKindDao {
     @Transactional
     public ExpenseKind insert(ExpenseKind expenseKind) {
         LOGGER.debug("DAO insert expense {}", expenseKind);
-        /*try (SqlSession sqlSession = getSession()) {
-            try {*/
-                expenseKindMapper.insert(expenseKind);
-           /* } catch (RuntimeException ex) {
-                LOGGER.info("Can't insert expense {}, {}", expenseKind, ex);
-                sqlSession.rollback();
-                throw ex;
-            }
-            sqlSession.commit();
-        }*/
+        expenseKindMapper.insert(expenseKind);
         return expenseKind;
 
 

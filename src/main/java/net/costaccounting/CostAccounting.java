@@ -15,9 +15,6 @@ public class CostAccounting {
     public static void main (String args []) {
         SpringApplication.run(CostAccounting.class, args);
 
-        ApplicationContext context = new AnnotationConfigApplicationContext(CostAccountingConfig.class);
-        ExpenseKindMapper expenseKindMapper = context.getBean(ExpenseKindMapper.class);
-        System.out.println(expenseKindMapper.toString());
     }
 
 }

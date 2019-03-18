@@ -17,7 +17,7 @@ public interface SumOfExpensesMapper {
 
 
     @Select("SELECT id, sum_of_expenses, period_start_date, period_end_date FROM sum_of_expenses WHERE expense_kind_id = " +
-            "#{expenseKindId}")
+            "#{expenseKindId} LIMIT 1")
     @Results({
             @Result(property = "id", column = "id"),
             @Result(property = "sumOfExpenses", column = "sum_of_expenses", javaType = Float.class),
@@ -26,5 +26,16 @@ public interface SumOfExpensesMapper {
 
     })
     SumOfExpenses getByExpenseKindId(int expenseKindId);
+
+    @Select("SELECT id, sum_of_expenses, period_start_date, period_end_date FROM sum_of_expenses WHERE expense_kind_id = " +
+            "#{expenseKindId} AND period_end_date < #{localDate} AND period_start_date > #{localDate}" )
+    @Results({
+            @Result(property = "id", column = "id"),
+            @Result(property = "sumOfExpenses", column = "sum_of_expenses", javaType = Float.class),
+            @Result(property = "startDate", column = "period_start_date", javaType = LocalDate.class),
+            @Result(property = "endDate", column = "period_end_date", javaType = LocalDate.class),
+
+    })
+    SumOfExpenses getByExpenseKindIdAndDate(int expenseKindId, LocalDate localDate);
 
 }
