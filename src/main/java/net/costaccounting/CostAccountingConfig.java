@@ -47,6 +47,11 @@ public class CostAccountingConfig {
     public SumOfExpensesDao sumOfExpensesDao () {return  new SumOfExpensesDaoImpl();
     }
 
+    @Bean
+    public Settings getSettings (CostAccountingService costAccountingService) {
+        return costAccountingService.getSettings();
+    }
+
 
     @Bean
     public DataSource getDataSource() {
