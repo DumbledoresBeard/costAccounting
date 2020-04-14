@@ -1,42 +1,23 @@
 package net.costaccounting.daoimpl;
 
 import net.costaccounting.dao.ExpenseDao;
-import net.costaccounting.mappers.ExpenseMapper;
 import net.costaccounting.model.Expense;
 import net.costaccounting.model.ExpenseKind;
-import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 
 
 
-
+@Repository
 public class ExpenseDaoImpl implements ExpenseDao {
     private static final Logger LOGGER = LoggerFactory.getLogger(ExpenseDaoImpl.class);
 
-    @Autowired
-    private ExpenseMapper expenseMapper;
-
     @Override
-    @Transactional
     public Expense insert(Expense expense, ExpenseKind expenseKind) {
-        LOGGER.debug("DAO insert expense {}", expense);
-      /*  try (SqlSession sqlSession = getSession()) {
-            try {*/
-               expenseMapper.insert(expense, expenseKind);
-          /*  } catch (RuntimeException ex) {*/
-               /* LOGGER.info("Can't insert expense {}, {}", expense, ex);*/
-            /*    sqlSession.rollback();
-                throw ex;
-            }
-            sqlSession.commit();*/
-        /*}*/
-        return expense;
-
+        return null;
     }
 
     @Override

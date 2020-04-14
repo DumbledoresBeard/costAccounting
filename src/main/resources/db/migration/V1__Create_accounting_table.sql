@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS accounting(
+id VARCHAR(150) PRIMARY KEY,
+name VARCHAR,
+sum VARCHAR,
+date date
+);

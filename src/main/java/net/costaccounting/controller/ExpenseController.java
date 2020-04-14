@@ -21,11 +21,6 @@ import javax.validation.Valid;
 @RestController
 public class ExpenseController {
 
-    @Bean
-    ServletWebServerFactory servletWebServerFactory(){
-        return new TomcatServletWebServerFactory();
-    }
-
     @Autowired
     CostAccountingService costAccountingService;
 

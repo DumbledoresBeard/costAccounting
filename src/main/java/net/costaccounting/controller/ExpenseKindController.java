@@ -20,11 +20,6 @@ import java.util.List;
 @RestController
 public class ExpenseKindController {
 
-    @Bean
-    ServletWebServerFactory servletWebServerFactory(){
-        return new TomcatServletWebServerFactory();
-    }
-
     @Autowired
     CostAccountingService costAccountingService;
 

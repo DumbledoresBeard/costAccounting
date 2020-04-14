@@ -17,11 +17,6 @@ import javax.validation.Valid;
 @RestController
 public class SettingsController {
 
-    @Bean
-    ServletWebServerFactory servletWebServerFactory() {
-        return new TomcatServletWebServerFactory();
-    }
-
 
     @RequestMapping(value = "/settings",
             method = RequestMethod.POST,

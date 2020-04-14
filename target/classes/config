@@ -1,6 +1,0 @@
-rest_http_port=
-max_name_length=4
-min_password_length=8
-min_answers=1
-min_questions_count_per_exam=5
-min_time=30

@@ -18,12 +18,6 @@ import javax.validation.Valid;
 @RestController
 public class SavingsFundsController {
 
-    @Bean
-    ServletWebServerFactory servletWebServerFactory() {
-        return new TomcatServletWebServerFactory();
-    }
-
-
     @RequestMapping(value = "/savingsfunds",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE,

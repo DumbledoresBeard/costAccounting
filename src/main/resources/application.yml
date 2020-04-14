@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/cost_accounting
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate.jdbc.lob.non_contextual_creation: true # See https://github.com/pgjdbc/pgjdbc/issues/1102
+    hibernate:
+      ddl-auto: none

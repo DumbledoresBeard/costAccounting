@@ -16,11 +16,6 @@ import javax.validation.Valid;
 
 @RestController
 public class BudgetController {
-    @Bean
-    ServletWebServerFactory servletWebServerFactory() {
-        return new TomcatServletWebServerFactory();
-    }
-
     @RequestMapping(value = "/budget",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE,
